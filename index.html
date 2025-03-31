@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Sets the character encoding to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ensures proper rendering and touch zooming on all devices -->
+    <title>Student Attendance and Academic Records</title>
+    <!-- Title of the webpage -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Links the Tailwind CSS library for styling -->
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-gray-100 p-4 sm:p-6">
+    <!-- Body with gradient background and padding -->
+    <div class="max-w-5xl mx-auto">
+        <!-- Container centered with maximum width -->
+        <div id="mainSection">
+            <!-- Main section displaying the header -->
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-center mb-4 sm:mb-6 text-blue-800">📘 Greenwood Academy
+            </h1>
+            <!-- Main title -->
+            <p class="text-center text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">Student Attendance and Academic
+                Records Management</p>
+            <!-- Subtitle -->
+
+            <!-- Form for adding student attendance -->
+            <form id="studentForm" class="bg-white p-4 sm:p-6 rounded-lg shadow-lg mb-6">
+                <h2 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-blue-700">Add Student Attendance</h2>
+                <!-- Form heading -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Grid layout for form inputs -->
+                    <input type="text" id="firstName" placeholder="First Name"
+                        class="border border-gray-300 p-2 sm:p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <!-- Input for first name -->
+                    <input type="text" id="lastName" placeholder="Last Name"
+                        class="border border-gray-300 p-2 sm:p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <!-- Input for last name -->
+                    <input type="date" id="dob"
+                        class="border border-gray-300 p-2 sm:p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <!-- Input for date of birth -->
+                    <select id="gender"
+                        class="border border-gray-300 p-2 sm:p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        <!-- Dropdown for selecting gender -->
+                        <option value="">Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <input type="text" id="fatherName" placeholder="Father's Name"
+                        class="border border-gray-300 p-2 sm:p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <!-- Input for father's name -->
+                    <input type="text" id="motherName" placeholder="Mother's Name"
+                        class="border border-gray-300 p-2 sm:p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <!-- Input for mother's name -->
+                    <input type="text" id="address" placeholder="Address"
+                        class="border border-gray-300 p-2 sm:p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <!-- Input for address -->
+                    <input type="text" id="contact" placeholder="Contact"
+                        class="border border-gray-300 p-2 sm:p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <!-- Input for contact number -->
+                    <input type="text" id="class" placeholder="Class"
+                        class="border border-gray-300 p-2 sm:p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <!-- Input for class -->
+                    <input type="text" id="rollNo" placeholder="Roll No."
+                        class="border border-gray-300 p-2 sm:p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <!-- Input for roll number -->
+                </div>
+                <button type="button" id="submitBtn"
+                    class="bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md hover:bg-blue-700 transition-all mt-6">Submit</button>
+                <!-- Submit button -->
+            </form>
+
+            <!-- Section for searching student attendance -->
+            <div class="bg-white p-4 sm:p-6 rounded-lg shadow-lg mb-6">
+                <h2 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-blue-700">Search Student Attendance</h2>
+                <input type="text" id="searchInput" placeholder="Search by First Name or Roll No."
+                    class="border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <!-- Input for search functionality -->
+            </div>
+
+            <!-- Section for displaying student records -->
+            <div class="bg-white p-4 sm:p-6 rounded-lg shadow-lg overflow-x-auto">
+                <h2 class="text-xl sm:text-2xl font-semibold mb-4 text-blue-700">Student Records</h2>
+                <table class="w-full border-collapse border border-gray-300 min-w-[37.5rem]">
+                    <!-- Table for student records -->
+                    <thead>
+                        <tr class="bg-blue-100 text-blue-900">
+                            <!-- Table headers -->
+                            <th class="border border-gray-300 p-3">No.</th>
+                            <th class="border border-gray-300 p-3">First Name</th>
+                            <th class="border border-gray-300 p-3">Last Name</th>
+                            <th class="border border-gray-300 p-3">DOB</th>
+                            <th class="border border-gray-300 p-3">Gender</th>
+                            <th class="border border-gray-300 p-3">Father's Name</th>
+                            <th class="border border-gray-300 p-3">Mother's Name</th>
+                            <th class="border border-gray-300 p-3">Address</th>
+                            <th class="border border-gray-300 p-3">Contact</th>
+                            <th class="border border-gray-300 p-3">Class</th>
+                            <th class="border border-gray-300 p-3">Roll No.</th>
+                            <th class="border border-gray-300 p-3">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recordsBody"></tbody>
+                    <!-- Dynamic content for student records -->
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section for viewing student details -->
+    <div id="viewSection" class="hidden">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700">Student Details</h2>
+        <div id="studentDetails" class="bg-white p-6 rounded-lg shadow-lg mb-6"></div>
+        <!-- Placeholder for student details -->
+        <button id="viewBackBtn"
+            class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-all">Back to
+            List</button>
+        <!-- Back to list button -->
+        <button id="marksheetBtn"
+            class="bg-green-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-green-700 transition-all ml-4">Show
+            Marksheet</button>
+        <!-- Show marksheet button -->
+    </div>
+    <!-- marksheet section -->
+    <div id="marksheetSection" class="hidden">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700">Marksheet</h2>
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-6 overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-300 min-w-[37.5rem]">
+                <thead>
+                    <tr class="bg-blue-100 text-blue-900">
+                        <th class="border border-gray-300 p-3">Subject</th>
+                        <th class="border border-gray-300 p-3">Marks</th>
+                        <th class="border border-gray-300 p-3">Grade</th>
+                        <th class="border border-gray-300 p-3">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="marksheetTable">
+                    <tr>
+                        <td class="border border-gray-300 p-3">Nepali</td>
+                        <td class="border border-gray-300 p-3"><input type="number" id="nepaliMarks"
+                                class="border p-2 rounded" value="90"></td>
+                        <td class="border border-gray-300 p-3" id="nepaliGrade">A</td>
+                        <td class="border border-gray-300 p-3"><button class="bg-yellow-500 text-white px-2 rounded"
+                                onclick="editMarks('nepali')">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-3">English</td>
+                        <td class="border border-gray-300 p-3"><input type="number" id="englishMarks"
+                                class="border p-2 rounded" value="85"></td>
+                        <td class="border border-gray-300 p-3" id="englishGrade">B+</td>
+                        <td class="border border-gray-300 p-3"><button class="bg-yellow-500 text-white px-2 rounded"
+                                onclick="editMarks('english')">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-3">Mathematics</td>
+                        <td class="border border-gray-300 p-3"><input type="number" id="mathMarks"
+                                class="border p-2 rounded" value="95"></td>
+                        <td class="border border-gray-300 p-3" id="mathGrade">A-</td>
+                        <td class="border border-gray-300 p-3"><button class="bg-yellow-500 text-white px-2 rounded"
+                                onclick="editMarks('math')">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-3">Science</td>
+                        <td class="border border-gray-300 p-3"><input type="number" id="scienceMarks"
+                                class="border p-2 rounded" value="88"></td>
+                        <td class="border border-gray-300 p-3" id="scienceGrade">A</td>
+                        <td class="border border-gray-300 p-3"><button class="bg-yellow-500 text-white px-2 rounded"
+                                onclick="editMarks('science')">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-3">Social Studies</td>
+                        <td class="border border-gray-300 p-3"><input type="number" id="socialMarks"
+                                class="border p-2 rounded" value="78"></td>
+                        <td class="border border-gray-300 p-3" id="socialGrade">B</td>
+                        <td class="border border-gray-300 p-3"><button class="bg-yellow-500 text-white px-2 rounded"
+                                onclick="editMarks('social')">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-3">Computer Science</td>
+                        <td class="border border-gray-300 p-3"><input type="number" id="computerMarks"
+                                class="border p-2 rounded" value="98"></td>
+                        <td class="border border-gray-300 p-3" id="computerGrade">A+</td>
+                        <td class="border border-gray-300 p-3"><button class="bg-yellow-500 text-white px-2 rounded"
+                                onclick="editMarks('computer')">Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 class="text-lg font-semibold mt-6">GPA: <span id="gpa" class="text-green-600">3.85</span></h3>
+        </div>
+        <div class="flex justify-start space-x-4">
+            <button id="marksheetBackBtn"
+                class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-all">Back to
+                List</button>
+            <!-- Export Buttons -->
+            <button onclick="exportToCSV()"
+                class="bg-green-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-green-700">Export as CSV</button>
+            <button onclick="downloadPDF()"
+                class="bg-red-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-red-700">Export as PDF</button>
+        </div>
+
+    </div>
+    </div>
+
+    <!-- Add jsPDF and autoTable scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.19/jspdf.plugin.autotable.js"></script>
+    </div>
+    <script src="script.js"></script>
+    <!-- Links the external JavaScript file -->
+</body>
+
+</html>
