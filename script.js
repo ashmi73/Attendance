@@ -301,7 +301,3 @@ function downloadPDF() {
   doc.save("marksheet.pdf");
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a1857e859991c12860182a0251c540721a420b36
